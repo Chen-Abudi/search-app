@@ -1,0 +1,63 @@
+.card {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  margin: 1rem 0;
+  background-color: #eeeeee;
+  color: #233142;
+  list-style: none;
+
+  border-radius: 3rem;
+  box-shadow: 15px 15px 30px #bebebe,
+    -15px -15px 30px #ffffff;
+}
+
+.cardContact {
+  display: flex;
+  flex-direction: column;
+}
+
+.cardName {
+  text-align: center;
+}
+
+.cardNameLink {
+  text-decoration: none;
+  color: #233142;
+  transition: all 0.3s linear;
+}
+
+.cardNameLink:hover {
+  color: #e8d5c4;
+}
+
+.cardTitles {
+  color: #146c94;
+}
+
+.cardHeaderInfo {
+  display: flex;
+  justify-content: space-between;
+  color: #19a7ce;
+
+  flex-direction: column;
+}
+
+.cardEmail {
+  margin: 0;
+}
+
+.cardPhone {
+  font-size: 1rem;
+  align-self: flex-end;
+  margin: 1rem 0;
+}
+
+.cardComments {
+  margin-bottom: 2rem;
+  border: 1px solid #146c94;
+}
+
+.cardCommentsBody[open] {
+  margin-bottom: 2rem;
+  border: 1px solid #146c94;
+}

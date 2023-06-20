@@ -1,0 +1,11 @@
+.userListContainer {
+  width: 100%;
+}
+
+.userList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 3rem;
+  list-style: none;
+  padding: 0;
+}

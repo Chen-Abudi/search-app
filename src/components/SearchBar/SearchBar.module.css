@@ -1,0 +1,30 @@
+.searchBar {
+  margin-bottom: 1rem;
+  margin: 0 auto;
+  width: 30rem;
+  display: flex;
+}
+
+.searchBarInput {
+  color: #146c94;
+  font-weight: 700;
+  /* width: 100%; */
+  margin: 0 auto;
+  padding: .5rem;
+  text-overflow: ellipsis;
+
+  width: 13rem;
+
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+.searchBarInput:focus {
+  width: 80%;
+}
+
+@media screen and (max-width: 500px) {
+  .searchBar {
+    width: 20rem;
+  }
+}
