@@ -9,3 +9,9 @@
   list-style: none;
   padding: 0;
 }
+
+@media screen and (max-width: 400px) {
+  .userList {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+}

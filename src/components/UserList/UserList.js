@@ -11,26 +11,21 @@ const UserList = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    api
-      .getUsers()
-      .then((data) => setUsers(data))
-      .catch((error) => console.error("Error getting users", error));
-
-    api
-      .getPosts()
-      .then((data) => setPosts(data))
-      .catch((error) => console.error("Error getting posts", error));
-
-    api
-      .getComments()
-      .then((data) => setComments(data))
-      .catch((error) => console.error("Error getting comments", error));
+    Promise.all([api.getUsers(), api.getPosts(), api.getComments()])
+      .then(([users, posts, comments]) => {
+        setUsers(users);
+        setPosts(posts);
+        setComments(comments);
+      })
+      .catch((error) => console.error("Error fetching data", error));
   }, []);
 
+  // Updates the search query state when the search bar value changes
   const handleSearch = (query) => {
     setSearchQuery(query);
   };
 
+  // Filter the users based on the search query
   const filteredUsers = users.filter(
     (user) =>
       user.name.toLowerCase().includes(searchQuery.toLowerCase()) ||

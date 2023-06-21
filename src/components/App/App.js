@@ -7,10 +7,10 @@ import styles from "./App.module.css";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 const App = () => {
-  const [currentUser, setCurrentUser] = useState({});
+  const currentUserState = useState({}); // Using array destruction to get the state
 
   return (
-    <CurrentUserContext.Provider value={currentUser}>
+    <CurrentUserContext.Provider value={currentUserState[0]}>
       <div className={styles.app}>
         <Header />
         <Routes>

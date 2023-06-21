@@ -5,7 +5,7 @@ import UserCard from "../UserCard/UserCard";
 import styles from "./UserPage.module.css";
 
 const UserPage = () => {
-  const { userId } = useParams();
+  const { userId } = useParams(); // This hook is used to retrieve the userId parameter from the URL
   const [user, setUser] = useState(null);
   const [posts, setPosts] = useState([]);
   const [comments, setComments] = useState([]);
@@ -14,8 +14,10 @@ const UserPage = () => {
     const fetchData = () => {
       Promise.all([api.getUsers(), api.getPosts(), api.getComments()])
         .then(([userData, postsData, commentsData]) => {
+          // Finds the user data corresponding to the provided userId.
           const user = userData.find((u) => u.id === Number(userId));
           setUser(user);
+          // Filter the posts data to only include posts by user with provided userId.
           const filteredPosts = postsData.filter(
             (post) => post.userId === Number(userId)
           );
@@ -25,9 +27,10 @@ const UserPage = () => {
         .catch((error) => console.error("Error retrieving data:", error));
     };
 
-    fetchData();
+    fetchData(); // Calling this func when the component mounts or when the userId changes.
   }, [userId]);
 
+  // If user state is null then this msg is displayed
   if (!user) {
     return <div>Loading...</div>;
   }
