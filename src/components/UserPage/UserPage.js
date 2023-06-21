@@ -11,31 +11,29 @@ const UserPage = () => {
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
-    api
-      .getUsers()
-        .then((data) => {
-          const user = data.find((u) => u.id === Number(userId));
+    const fetchData = () => {
+      Promise.all([api.getUsers(), api.getPosts(), api.getComments()])
+        .then(([userData, postsData, commentsData]) => {
+          const user = userData.find((u) => u.id === Number(userId));
           setUser(user);
-      })
-        .catch((error) => console.error("Error getting users:", error));
+          const filteredPosts = postsData.filter(
+            (post) => post.userId === Number(userId)
+          );
+          setPosts(filteredPosts);
+          setComments(commentsData);
+        })
+        .catch((error) => console.error("Error retrieving data:", error));
+    };
 
-    api
-      .getPosts()
-        .then((data) => setPosts(data.filter((post) => post.userId === Number(userId))))
-        .catch((error) => console.error("Error getting posts:", error));
-
-    api
-      .getComments() 
-        .then((data) => setComments(data))
-        .catch((error) => console.error("Error getting comments:", error));
+    fetchData();
   }, [userId]);
 
   if (!user) {
-    return <div>Loading...</div>
+    return <div>Loading...</div>;
   }
 
   return (
-    <div>
+    <div className={styles.UserPage}>
       <UserCard user={user} posts={posts} comments={comments} />
     </div>
   );

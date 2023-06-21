@@ -1,51 +1,48 @@
 import { baseUrl, headers } from "./constants";
 
 class Api {
-    constructor({ baseUrl, headers}) {
-        this._baseUrl = baseUrl;
-        this._headers = headers;
-    }
+  constructor({ baseUrl, headers }) {
+    this.baseUrl = baseUrl;
+    this.headers = headers;
+  }
 
-    _processResponse(res) {
-        if (res.ok) {
-            return res.json();
-        } else {
-            return Promise.reject(`An error just occurred: ${res.status}`);
-        }
+  processResponse(res) {
+    if (res.ok) {
+      return res.json();
+    } else {
+      return Promise.reject(`An error occurred: ${res.status}`);
     }
+  }
 
-    // getData(url) {
-    //     return fetch(url)
-    //     .then(this._processResponse)
-    //     .catch((error) => {
-    //         console.error("Error fetching data:", error);
-    //         throw error;
-    //     })
-    // }
+  getData(url) {
+    return fetch(url)
+      .then(this.processResponse)
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        throw error;
+      });
+  }
 
-    getUsers() {
-        return fetch(`${this._baseUrl}/users`, {
-            method: 'GET',
-            headers: this._headers,
-        }).then((data) => data)
-        .then(this._processResponse);
-    }
+  getUsers() {
+    return fetch(`${this.baseUrl}/users`, {
+      method: "GET",
+      headers: this.headers,
+    }).then(this.processResponse);
+  }
 
-    getPosts() {
-        return fetch(`${this._baseUrl}/posts`, {
-            method: 'GET',
-            headers: this._headers,
-        }).then((data) => data)
-        .then(this._processResponse);
-    }
+  getPosts() {
+    return fetch(`${this.baseUrl}/posts`, {
+      method: "GET",
+      headers: this.headers,
+    }).then(this.processResponse);
+  }
 
-    getComments() {
-        return fetch(`${this._baseUrl}/comments`, {
-            method: 'GET',
-            headers: this._headers,
-        }).then((data) => data)
-        .then(this._processResponse);
-    }
+  getComments() {
+    return fetch(`${this.baseUrl}/comments`, {
+      method: "GET",
+      headers: this.headers,
+    }).then(this.processResponse);
+  }
 }
 
 const api = new Api({ baseUrl, headers });
