@@ -7,7 +7,7 @@ const UserCard = ({ user, posts, comments }) => {
     <li className={styles.card}>
       <div className={styles.cardContact}>
         <h3 className={styles.cardName}>
-          <Link className={styles.cardNameLink} to={`/users/${user.id}`}>
+          <Link className={styles.cardNameLink} to={`/users/${user.id}`}> 
             {user.name}
           </Link>
         </h3>

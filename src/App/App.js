@@ -8,7 +8,11 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 const App = () => {
   const currentUserState = useState({}); // Using array destruction to get the state
+  const {isLoading} = useAppDataContext();
 
+  if(isLoading) return <Spinner/>
+
+  
   return (
     <CurrentUserContext.Provider value={currentUserState[0]}>
       <div className={styles.app}>
