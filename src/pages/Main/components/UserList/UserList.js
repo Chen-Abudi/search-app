@@ -1,24 +1,12 @@
-import React, { useEffect, useState } from "react";
-import api from "../../utils/api";
-import UserCard from "../UserCard/UserCard";
-import SearchBar from "../SearchBar/SearchBar";
+import React, { useState } from "react";
+import UserCard from "../../../../components/UserCard/UserCard";
+import SearchBar from "../../components/UserList/components/SearchBar/SearchBar";
 import styles from "./UserList.module.css";
+import { useAppDataContext } from "../../../../contexts/AppContext";
 
 const UserList = () => {
-  const [users, setUsers] = useState([]);
-  const [posts, setPosts] = useState([]);
-  const [comments, setComments] = useState([]);
+  const { users, posts, comments } = useAppDataContext();
   const [searchQuery, setSearchQuery] = useState("");
-
-  useEffect(() => {
-    Promise.all([api.getUsers(), api.getPosts(), api.getComments()])
-      .then(([users, posts, comments]) => {
-        setUsers(users);
-        setPosts(posts);
-        setComments(comments);
-      })
-      .catch((error) => console.error("Error fetching data", error));
-  }, []);
 
   // Updates the search query state when the search bar value changes
   const handleSearch = (query) => {

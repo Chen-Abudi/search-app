@@ -1,5 +1,5 @@
 import React from "react";
-import UserList from "../UserList/UserList";
+import UserList from "./components/UserList/UserList";
 import styles from "./Main.module.css";
 
 const Main = () => {
