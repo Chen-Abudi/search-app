@@ -1,4 +1,4 @@
-# Search Users
+# Search Users 👥
 
 **Developed by `Grace Chen Abudi`** 👩🏽‍💻
 
@@ -6,6 +6,8 @@
 
 - Intro
 - Tech Stack & Techniques
+- How to Get Started
+- Possible Improvements
 
 ---
 
@@ -27,6 +29,7 @@ This is just an example of an home assignment.
 - Jest
 - TDD
 - Fuse.js
+- Babel
 
 ---
 
@@ -45,3 +48,10 @@ This is just an example of an home assignment.
 ## Launch
 
 **`npm run start`**
+
+---
+
+## 🔧 Possible Improvements:
+
+- [ ] Improving UI Design
+- [ ] Add More Testing
