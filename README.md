@@ -79,5 +79,5 @@ npm run start
 
 ## 🔧 Possible Improvements:
 
-- [ ] Improving UI Design
-- [ ] Add More Testing
+- [ ] Improving the UI Design
+- [ ] Add More **Tests** to cover the functionality
