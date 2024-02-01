@@ -35,19 +35,45 @@ This is just an example of an home assignment.
 
 # ✨ How to Get Started
 
-## Clone
+## Clone Project:
 
-**`git clone https://github.com/Chen-Abudi/search-app.git`**
+```bash
 
-## Install
+git clone https://github.com/Chen-Abudi/search-app.git
 
-**`cd search-app`**
+```
 
-**`npm install`** or in short **`npm i`**
+## Enter the project directory:
 
-## Launch
+```bash
 
-**`npm run start`**
+cd search-app
+
+```
+
+## Install the Dependencies:
+
+```bash
+
+npm install
+
+```
+
+or in short
+
+```bash
+
+npm i
+
+```
+
+## Launch:
+
+```bash
+
+npm run start
+
+```
 
 ---
 
