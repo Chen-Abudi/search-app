@@ -25,8 +25,9 @@ This is just an example of an home assignment.
 - CSS Modules
 - React Router Dom
 - React Loader Spinner
-- React Test Render
+- React Test Renderer
 - Jest
+- Testing
 - TDD
 - Fuse.js
 - Babel
